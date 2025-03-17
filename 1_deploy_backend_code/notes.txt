@@ -71,4 +71,8 @@ let start deployment.
 
 make git repo of this file. Also add file of .gitignore to ignore some files
 
+push it to your repo
+
+Open digitalocean for deployment
+
 

@@ -1,0 +1,6 @@
+start writing "npm init"
+
+add server.js in backend folder
+
+
+
