@@ -1,0 +1,74 @@
+ruthvikyogeshjoshi@Ruthviks-MacBook-Air-4 BackEnd % npm init
+This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sensible defaults.
+
+See `npm help init` for definitive documentation on these fields
+and exactly what they do.
+
+Use `npm install <pkg>` afterwards to install a package and
+save it as a dependency in the package.json file.
+
+Press ^C at any time to quit.
+package name: (backend) tutorialBackend
+Sorry, name can no longer contain capital letters.
+package name: (backend) tutorialbackend
+version: (1.0.0) 
+description: a basic app to deploy
+entry point: (index.js) index.js
+test command: 
+git repository: 
+keywords: node tutorial
+author: Ruthvik 
+license: (ISC) 
+About to write to /Users/ruthvikyogeshjoshi/Desktop/BackEnd/package.json:
+
+{
+  "name": "tutorialbackend",
+  "version": "1.0.0",
+  "description": "a basic app to deploy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "tutorial"
+  ],
+  "author": "Ruthvik",
+  "license": "ISC"
+}
+
+
+Is this OK? (yes)
+
+
+
+
+
+*******************************
+
+change test in  package.json to start "node index.js"
+
+then start write "npm run start" in terminal.
+
+then install express.js in this folder
+
+now type "npm run start".
+
+congratulations, you have create a server.
+
+Now to store the sensitive information we must install dotenv by typing "npm i dotenv"
+
+now type sensitive variable in the .env
+
+now type "require('dotenv').config()" in index.js
+
+then write "port" to "process.env.PORT" in add.listen
+
+Now you did the production ready (actually the server is running on .env PORT, i.e. 3000 not 4000)
+
+let start deployment.
+
+make git repo of this file. Also add file of .gitignore to ignore some files
+
+
