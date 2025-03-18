@@ -2,5 +2,74 @@ start writing "npm init"
 
 add server.js in backend folder
 
+run the code. While running the code the error comes as "> backend@1.0.0 start
+> node server.js
 
+(node:1813) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/ruthvikyogeshjoshi/Desktop/BackEnd/2_frontend_backend_connect/backend/server.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/ruthvikyogeshjoshi/Desktop/BackEnd/2_frontend_backend_connect/backend/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Serve at http://localhost:3000"
+
+so the syntax "import express from 'express';" is ModuleJS which is async, while "const express = require('express');" is CommonJS which is sync.
+
+to handle like ModuleJS, go to package.json add ""type":"module"". Then run code again. 
+
+Now I am interest in create route with an example of 5 jokes array.
+
+On running code again, write "/jokes" in URL, you will see arrays in form of json format.
+
+Now you'll focus on frontend, we have created the basic backend already. Comes to the frontend folder.
+
+We'll use Vite bundler
+
+open integrated frontend terminal, then type "npm create vite@latest .". follow these selection "Need to install the following packages:
+create-vite@6.3.1
+Ok to proceed? (y) 
+
+
+> npx
+> create-vite .
+
+│
+◇  Select a framework:
+│  React
+│
+◇  Select a variant:
+│  JavaScript
+│
+◇  Scaffolding project in /Users/ruthvikyogeshjoshi/Desktop/BackEnd/2_frontend_backend_connect/frontend...
+│
+└  Done. Now run:
+
+  npm install
+  npm run dev"
+
+Type ls then see if package.json exist if exist type "npm i", then type "npm run dev".
+
+now got to App.jsx and remove unnecessary content and add as shown in the code to give jokes as an example.
+
+we didn't sent a request. so let start with basics, install axios package in terminal
+
+add "import axios from "axios"" in app.jsx code, also add useEffect syntax.
+
+add useEffect function as "  
+useEffect(()=>{
+    axios.get('http://http://localhost:3000/jokes')
+    .then((response) => {
+      setJokes(response.data)
+    })
+    .catch((error)=>{
+      console.log(error);
+    })
+  })
+"
+
+on opening console in browser and see error of CORS policy (cross origin)
+
+we'll have to inform backend developers to whitelist some URLs, domains, IPs etc.
+
+visit cors npm website
+
+go to backend folder then server.js and use standardization process of syntax "/api/jokes". also in App.jsx in frontend
 
