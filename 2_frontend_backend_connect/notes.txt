@@ -73,3 +73,28 @@ visit cors npm website
 
 go to backend folder then server.js and use standardization process of syntax "/api/jokes". also in App.jsx in frontend
 
+then we can use only "/api/jokes" in frontend App.jsx which mean it would be seen by everyone. But that url doesn't exist that why we are using proxies.
+
+go to proxy create react app documentation
+
+add ""proxy": "http://localhost:4000"," in package.json of frontend folder
+
+thus we didn;t use create react app, we use vite handler
+
+So go to vite proxy docs,
+
+go to vite.config.js in frontend folder add- "
+export default defineConfig({
+  server : {
+    proxy : {
+      '/api' : 'http://localhost:3000',
+    }
+  },
+  plugins: [react()],
+})
+"
+
+this will append before whenever the "/api" occurs, not only append it also request comes from that url of thta proxy. 
+
+
+
