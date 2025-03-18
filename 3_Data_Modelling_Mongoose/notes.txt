@@ -1,0 +1,36 @@
+before storing data, first we need to create model of the data with the help of pen and paper.
+
+create backend folder, then install express and mongoose
+
+create "models" folder and inside that "todos" folder as an example
+
+inside todos folder create "user.models.js", "todo.models.js" and "sub_todo.models.js".
+
+in sub_todo.models.js or any we'll always remember three lines of code that is "
+import mongoose from "mongoose";
+
+const userSchema = new mongoose.Schema({});
+
+export const User = mongoose.model("User", userSchema);
+"
+
+in MongoDB it is practiced that whenever we create data in schema, it converts in to plural with lowercases, i.e. User ----> users.
+
+go to mongoose docs
+
+now create schema in any of three files like username, email, etc.
+
+we can write "username: String" but for more productivity we write "        
+username : {
+            type : String,     
+            required : true,    //this data is must required
+            unique: true,       //this username should be unique
+            lowercase : true,   //username should in lowercase
+        },
+"
+
+we are working in the validation of data.
+
+mongoose docs must to be read
+
+also add secondary object called timestamp which tell us about createdAt and updatedAt.
