@@ -1,0 +1,10 @@
+initialize npm in backend folder
+
+install mongoose, express, dotenv and nodemon
+
+add "src" folder, inside src folder add in production folders and in production files along with server.js
+
+add module type in package.json
+
+add .gitignore 
+
