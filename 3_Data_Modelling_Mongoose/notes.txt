@@ -34,3 +34,14 @@ we are working in the validation of data.
 mongoose docs must to be read
 
 also add secondary object called timestamp which tell us about createdAt and updatedAt.
+
+To create reference from todo to user syntax would be like this "   
+createdBy : {
+        type : mongoose.Schema.Types.ObjectId,
+        ref : "User"
+    }
+"
+
+this "User" comes from model object string "User".
+
+Create complete data model.
