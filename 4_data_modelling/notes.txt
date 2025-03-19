@@ -1,0 +1,3 @@
+Start creating the folder like 3rd folder of this tutorial, but with the example of Ecommerce and Hospital management.
+
+Create an `orderItemSchema` in `order.models.js` where `orderItems` is an object in the `orderSchema`. The `orderItemSchema` should define the structure of each item in an order, including fields such as `product`, `quantity`, `price`, and `total`.
