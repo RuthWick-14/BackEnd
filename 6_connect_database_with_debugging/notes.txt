@@ -1,0 +1,19 @@
+go and search MongoDB atlas
+
+sign in to mongodb and use free tier pricing then create new project, and follow the process as they say.
+
+initialize the npm in backend and add same files as for continuation from 5 tutorial.
+
+add "PORT = 8000" and "MONGODB_URL" in .env the url is the connection string which is available in mongodb cluster
+
+remember remove "/?retryWrites=true&w=majority&appName=Cluster0" from the url.
+
+start typing code in constants.js and store database name
+
+now at server.js, see code
+
+the import syntax of dotenv is not available in docs but available of require syntax, so go to package.json add text in  scripts-->devs "-r dotenv/config"
+
+also we have to add text in continuation of above which is "-r dotenv/config --experimental-json-modules" which makes code consistency for professional coders
+
+in this scenario, please please please don't use chatGPT or giveup when error is shown, try to understand why error is occurring and then fix it, check if your mongo url is correct or not, is file location correct or not?, is file name is missing? etc.
