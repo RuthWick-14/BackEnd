@@ -8,3 +8,14 @@ add module type in package.json
 
 add .gitignore 
 
+create "public/temp" folder and add .gitkeep
+
+install prettier to avoid conflicts
+
+add file .prettierrc
+
+open npm prettier docs
+
+add syantax in .prettierrc like that in same file
+
+create .prettierignore file, and add syntax like that own file
