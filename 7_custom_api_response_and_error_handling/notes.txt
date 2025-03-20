@@ -1,0 +1,33 @@
+last time we had connect database to mongodb using mongoose odm
+
+type the basic express code in app.js
+
+then add promise syntax ie then() and catch() in cathc print error message and for then print database connection with port number message, that is complete 2nd approach
+
+install npm cookie-parser and cors
+
+import cookieParser and cors in app.js then configure using "app.use()" syntax
+
+add "CORS_ORIGIN" in .env
+
+"app.use(express.json({
+    limit: "16kb"
+}))
+"
+this above configuration syntax is used to process or send json data from any source like url, form etc. We have to limit the json file size to avoid crash.
+
+earlier the express can't parse json file, they use body-parser at that time, recently it is by default.
+
+"app.use(express.urlencoded({
+    extended: true,
+    limit: "16kb"
+}))"
+this configuration syntax is used to encode url, for eg on spacing indent url gives "+" sign between instead of space which is to encoded as "%20".
+
+app.use(express.static("public"))
+this configuration syntax having folder named "public" inside backend folder.
+
+app.use(cookieParser())
+this configuration syntax is used to set secure cookies to user's browser, only server can read and write cookies of user's browser.
+
+

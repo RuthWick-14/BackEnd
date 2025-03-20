@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "a backend of project-Part2",
+  "description": "a backend of project-Part3",
   "type": "module",
   "main": "server.js",
   "scripts": {
@@ -15,6 +15,8 @@
   "author": "Ruthvik",
   "license": "ISC",
   "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "mongoose": "^8.12.1"
