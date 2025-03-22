@@ -30,4 +30,16 @@ this configuration syntax having folder named "public" inside backend folder.
 app.use(cookieParser())
 this configuration syntax is used to set secure cookies to user's browser, only server can read and write cookies of user's browser.
 
+this above syntax is just middleware.
+
+create "asyncHandler.js" in utils folder. In this we are going create wrapper function.
+
+also create "ApiError.js", create class ApiError
+
+also create "ApiResponse.js", create class ApiResponse
+
+
+
+
+
 
