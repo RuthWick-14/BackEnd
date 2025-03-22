@@ -1,0 +1,13 @@
+visit cloudnary website
+
+install "npm i multer express-fileupload cloudinary"
+
+the files is uploaded through multer by user
+
+create file "cloudinary.js" in utils
+
+see cloudinary.js and multer.middleware.js
+
+it just for uploading file from a path loaction
+
+congrats we completed the cofiguration settings
