@@ -1,0 +1,70 @@
+continuation of part 4
+
+create models of user and videos in model folder
+
+install "npm i mongoose-aggregate-paginate-v2"
+
+import this package in video.models.js
+
+install "npm i bcrypt jsonwebtoken"
+
+import these package in user.models.js
+
+read mongoose "pre" hook docs
+
+now create syntax like this "
+userSchema.pre("save", async function(next){
+    // if (this.isModified("password")) {
+    //     this.password = bcrypt.hash(this.password, 10)
+    //     next();
+    // }
+
+    // or
+    if(!this.isModified("password")){
+        return next();
+    }
+    this.password = bcrypt.hash(this.password, 10)
+    next()
+})
+"
+this will encrypt password before saving the data.
+
+read mongoose methods doc.
+
+create syntax like this "
+userSchema.methods.isPasswordCorrect = async function(password) {
+    return await bcrypt.compare(password, this.password)
+}
+
+userSchema.methods.generateAccessToken = function(){
+    return jwt.sign(
+        {
+            _id: this._id,
+            email: this.email,
+            username: this.username,
+            fullname: this.fullname
+        },
+        process.env.ACCESS_TOKEN_SECRET,
+        {
+            expiresIn: process.env.ACCESS_TOKEN_EXPIRY
+        }
+    )
+}
+
+userSchema.methods.generateRefreshToken = function(){
+    return jwt.sign(
+        {
+            _id: this._id,
+        },
+        process.env.REFRESH_TOKEN_SECRET,
+        {
+            expiresIn: process.env.REFRESH_TOKEN_EXPIRY
+        }
+    )
+}
+"
+this is the function we create for valid password and active/refresh token.
+
+add "ACCESS_TOKEN_SECRET", "ACCESS_TOKEN_EXPIRY", "REFRESH_TOKEN_SECRET" and "REFRESH_TOKEN_EXPIRY" in .env file, you can put in .env.sample if in production
+
+in jwt, basically it is high security encrytion data that encrypt the sensitive information which is called web token.
