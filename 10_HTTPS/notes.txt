@@ -1,0 +1,41 @@
+in http, the data is readable
+
+in https, the data is encrypt 
+
+http header ----> caching, authentication(bearer token, access token, request token etc.), manage state
+
+request header ---> from client
+response header ---> from server
+representation header ---> encoding/compression
+payload header ---> data
+
+most common headers
+accept ---> application/json
+user ---> agent
+authorization
+content-type
+cookie
+cache-control
+
+CORS 
+Access-Control-Allow-Origin
+Access-Control-Allow-Credentials
+Access-Control-Allow-Method
+
+Security
+Cross-Origin-Embedder-Policy
+Cross-Origin-Opener-Policy
+Content-Security-Policy
+X-XSS-Protection
+
+http methods
+get
+head 
+options
+trace
+delete
+put
+post
+patch
+
+read the basics of status code
