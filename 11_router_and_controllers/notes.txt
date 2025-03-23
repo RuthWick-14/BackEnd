@@ -1,0 +1,20 @@
+create file "user.controller.js" in controller folder
+
+create "file user.routes.js" in routes folder
+
+see these file and understand what code trying to say 
+
+"
+//routes import
+import userRouter from './routes/user.routes.js';
+
+//routes decleration
+app.use("api/v1/users", userRouter)
+
+export {app};
+"
+this is the standard practise of writing code 
+
+Here the working is, the 2nd syntax of the above code is using middleware to perform the next with the selected router in user.routes.js 
+
+in user.controller.js we are using asyncHandler to handle the backend to chekc if it is working or not.
