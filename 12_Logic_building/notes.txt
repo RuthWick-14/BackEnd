@@ -11,3 +11,16 @@ check for user user creation
 return response
 
 we have create this algorithms
+
+import upload object from user.routes.js with the help of multer
+
+see new lines of code in user.routes.js
+
+import user object for validation 
+
+import uploadOnCloudinary to upload files on cloudinary
+
+check the mistake, we missed await syntax in user.models.js then see bcrypt, also export apiResponse in ApiResponse.js
+
+understand algorithms created in user.controller.js 
+
