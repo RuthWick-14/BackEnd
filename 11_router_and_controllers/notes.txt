@@ -17,4 +17,4 @@ this is the standard practise of writing code
 
 Here the working is, the 2nd syntax of the above code is using middleware to perform the next with the selected router in user.routes.js 
 
-in user.controller.js we are using asyncHandler to handle the backend to chekc if it is working or not.
+in user.controller.js we are using asyncHandler to handle the backend to check if it is working or not.
