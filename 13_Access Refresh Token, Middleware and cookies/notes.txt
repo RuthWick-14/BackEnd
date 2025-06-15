@@ -1,0 +1,20 @@
+An Access Token and a Refresh Token are two types of credentials commonly used in modern authentication systems, especially with OAuth 2.0 and OpenID Connect.
+
+Access Token:
+
+An access token is a short-lived credential issued by an authentication server after a user successfully logs in.
+It is used by the client (such as a web or mobile app) to access protected resources or APIs on behalf of the user.
+Access tokens usually have a limited lifespan (e.g., 15 minutes to 1 hour) for security reasons.
+When the access token expires, the client cannot access the protected resources until it obtains a new token.
+Refresh Token:
+
+A refresh token is a long-lived credential also issued by the authentication server along with the access token.
+Its main purpose is to allow the client to obtain a new access token without requiring the user to log in again.
+When the access token expires, the client sends the refresh token to the authentication server to request a new access token.
+Refresh tokens are typically stored securely and are not sent with every API request.
+If a refresh token is compromised, an attacker could obtain new access tokens, so they must be protected carefully.
+Summary:
+
+Access tokens grant temporary access to resources.
+Refresh tokens allow the client to get new access tokens without user intervention.
+Together, they improve both security and user experience in authentication systems.
