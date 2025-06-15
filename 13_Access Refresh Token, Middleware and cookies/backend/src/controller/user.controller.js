@@ -4,6 +4,23 @@ import { User } from "../models/user.models.js";
 import { uploadOnCloudinary } from "../utils/cloudinary.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 
+const generateAccessAndRefreshTokens = async (userId) => {
+    try{
+        const user = await User.findById(userId)
+        const accessToken = user.generateAccessToken()
+        const refreshToken = user.generateRefreshToken()
+        //We want to store refresh token data in database
+        user.refreshToken = refreshToken // this refreshToken int user.refreshToken syntax comes from userSchema in user.model.js
+        //save data
+        await user.save({validateBeforeSave: false}) // in this case by default it will save all data like password etc. we just want to save access refresh token so the method inside save() is used
+
+        return {accessToken, refreshToken}
+    }
+    catch (error){
+        throw new ApiError(500, "Something went wrong while generating access and refresh token.")
+    }
+}
+
 const registerUser = asyncHandler(async (req, res) => {
     // get user details from frontend
     // validation - not empty
@@ -72,8 +89,40 @@ const registerUser = asyncHandler(async (req, res) => {
     }
 
     return res.status(201).json(
-        new ApiResponse(200, createdUser, "User registered Successfully.")
+        new ApiResponse(200, createdUser, "User registered successfully.")
     )
 })
 
-export { registerUser }
+const loginUser = asyncHandler(async (res,req) => {
+    // req body -> data
+    // username or email (yeh exact point hai jisme logo ko ratne ki aadat hai)
+    // find the user
+    // password check
+    // access and refresh token
+    // send cookie
+
+    const {email, username, password} = req.body
+
+    if (!username || !email) {
+        throw new ApiError(400, "Username or email required.")
+    }
+
+    const user = await User.findOne({
+        $or: [{username}, {email}]
+    })
+
+    if (!user) {
+        throw new ApiError(404, "User does not exist.")
+    }
+
+    const isPasswordValid = await user.isPasswordCorrect(password)
+
+    if (!isPasswordValid) {
+        throw new ApiError(401, "Invalid user credentials.")
+    }
+    // we wish to create seperate method of access and refresh token above and use this method later below
+
+    const {accessToken, refreshToken} = await generateAccessAndRefreshTokens(user._id)
+})
+
+export { registerUser, loginUser}
