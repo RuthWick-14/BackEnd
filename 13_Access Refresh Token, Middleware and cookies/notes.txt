@@ -18,3 +18,51 @@ Summary:
 Access tokens grant temporary access to resources.
 Refresh tokens allow the client to get new access tokens without user intervention.
 Together, they improve both security and user experience in authentication systems.
+Cookies (Detailed Notes):
+
+- Definition:
+    - Cookies are small pieces of data (key-value pairs) that a server sends to a user's web browser.
+    - The browser stores these cookies and sends them back to the server with subsequent requests to the same domain.
+
+- How Cookies Work:
+    - When a server wants to store data on the client, it sends a `Set-Cookie` header in the HTTP response.
+    - The browser saves the cookie and automatically includes it in the `Cookie` header of future HTTP requests to the same server.
+    - This allows the server to recognize returning users and maintain stateful information across requests.
+
+- Cookies in HTTP Response:
+    - The server sets a cookie using the `Set-Cookie` header.
+    - Example: `Set-Cookie: sessionId=abc123; HttpOnly; Secure; Path=/; Expires=Wed, 21 Jun 2024 07:28:00 GMT`
+    - Multiple cookies can be set by sending multiple `Set-Cookie` headers.
+
+- Cookies in HTTP Request:
+    - The browser sends cookies back to the server using the `Cookie` header.
+    - Example: `Cookie: sessionId=abc123; theme=dark`
+
+- Cookie Attributes (Foundation):
+    - `Name=Value`: The actual data stored in the cookie.
+    - `Expires` / `Max-Age`: Controls the lifetime of the cookie. If not set, the cookie is a session cookie and is deleted when the browser closes.
+    - `Domain`: Specifies which domains can access the cookie.
+    - `Path`: Limits the cookie to a specific path within the domain.
+    - `Secure`: Cookie is only sent over HTTPS connections.
+    - `HttpOnly`: Prevents JavaScript from accessing the cookie (helps mitigate XSS attacks).
+    - `SameSite`: Controls whether the cookie is sent with cross-site requests (helps prevent CSRF attacks).
+
+- Use Cases:
+    - Session management (e.g., keeping users logged in)
+    - Personalization (e.g., storing user preferences)
+    - Tracking and analytics
+
+- Security Considerations:
+    - Sensitive data should not be stored in cookies unless they are secured with `Secure` and `HttpOnly` flags.
+    - Cookies can be vulnerable to attacks like XSS and CSRF if not properly configured.
+
+- Setting, Reading, and Deleting Cookies:
+    - Server-side: Set via HTTP headers; read from incoming requests.
+    - Client-side: Can be accessed and manipulated using JavaScript (except `HttpOnly` cookies).
+    - Deleting: Set the cookie's `Expires` date to a past date.
+
+- Summary:
+    - Cookies are essential for maintaining state in stateless HTTP protocol.
+    - Proper configuration is crucial for security and privacy.
+
+also we create auth.middleware.js in middleware folder to authentication of user while logged out.
