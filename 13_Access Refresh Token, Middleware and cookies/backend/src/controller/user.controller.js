@@ -123,6 +123,30 @@ const loginUser = asyncHandler(async (res,req) => {
     // we wish to create seperate method of access and refresh token above and use this method later below
 
     const {accessToken, refreshToken} = await generateAccessAndRefreshTokens(user._id)
+
+    const loggedInUser = await User.findById(user._id).select("-password -refreshToken")
+
+    const options = {
+        httpOnly: true,
+        secure: true
+    }
+
+    return res
+    .status(200)
+    .cookie("accessToken", accessToken, options)
+    .cookie("refreshToken", refreshToken, options)
+    .json(
+        new ApiResponse(200, 
+            {
+                user: loggedInUser, accessToken, refreshToken
+            },
+            "User logged in successfully."
+        )
+    )
 })
 
-export { registerUser, loginUser}
+const logoutuser = asyncHandler(async (req, res) => {
+    
+})
+
+export {registerUser, loginUser}
